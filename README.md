@@ -7,8 +7,6 @@ This is split into two projects:
 
 Each with sln, projects and testing.
 
-# CartonCapsMockApi
-
 # CartonCapsRestApi
 This is a REST API project that is to power the new referral feature which will be leveraged by the frontend.
 
@@ -28,7 +26,7 @@ This project will use or mock the following:
  - `dotnet test` in directory with the sln for `CartonCapsRestApi`
  - `dotnet run --project CartonCapsRestApi.Web/CartonCapsRestApi.Web.csproj` in directory with the sln for `CartonCapsRestApi`
 
-## OpenAPI
+## OpenAPI / Rest API Spec
 This project leverages the built in Microsoft Open API and Swagger UI for ease of use
 - [Docs for Open API library](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/aspnetcore-openapi?view=aspnetcore-9.0&tabs=visual-studio%2Cvisual-studio-code)
 - To use Swagger UI go to `http://localhost:PORT/swagger/`

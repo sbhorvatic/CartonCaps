@@ -1,11 +1,7 @@
-using CartonCapsRestApi.Web.Router;
 using CartonCapsRestApi.Web.Services;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Routing;
-using NSubstitute;
 
 namespace CartonCapsRestApi.Test.Router {
-    public class Tests
+    public class HealthServiceTest
     {
         [Test]
         public void Get_Health_Successfully()
