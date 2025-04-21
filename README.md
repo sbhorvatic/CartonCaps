@@ -5,8 +5,6 @@ This is split into two projects:
 - RestSpec
 - CartonCapsMockApi
 
-Each with sln, projects and testing.
-
 # RestSpec
 This is the OpenAPI spec for the project. This was gen using Open API and can be seen when starting the app and going to `http://localhost:8080/openapi/v1.json`
 
