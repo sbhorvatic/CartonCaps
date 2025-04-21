@@ -1,0 +1,6 @@
+@CartonCapsRestApi.Web_HostAddress = http://localhost:5098
+
+GET {{CartonCapsRestApi.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
