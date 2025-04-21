@@ -8,11 +8,11 @@ namespace CartonCapsRestApi.Test.Router {
     public class Tests
     {
         [Test]
-        public void Get_Hello_World_Successfully()
+        public void Get_Health_Successfully()
         {
-            var service = new HelloWorldService();
+            var service = new HealthService();
 
-            Assert.That(service.GetHello(), Is.EqualTo("Hello"));
+            Assert.That(service.GetHealth(), Is.EqualTo("Ok"));
         }
     }
 }

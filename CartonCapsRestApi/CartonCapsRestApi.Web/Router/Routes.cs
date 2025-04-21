@@ -3,19 +3,19 @@ using CartonCapsRestApi.Web.Services;
 namespace CartonCapsRestApi.Web.Router {
     public class Routes {
         public IServiceCollection SetDi(IServiceCollection serviceCollection) {
-            serviceCollection.AddScoped<IHelloWorldService, HelloWorldService>();
+            serviceCollection.AddScoped<IHealthService, HealthService>();
             return serviceCollection;
         }
         
         public IEndpointRouteBuilder SetRoutes(IEndpointRouteBuilder app) {
-            app = SetHelloRoutes(app);
+            app = SetHealthRoutes(app);
             return app;
         }
 
-        private IEndpointRouteBuilder SetHelloRoutes(IEndpointRouteBuilder app) {
-            app.MapGet("/hello", (IHelloWorldService helloWorldService) => helloWorldService.GetHello())
-                .WithDescription("Display Hello World")
-                .WithTags("Helo Service");
+        private IEndpointRouteBuilder SetHealthRoutes(IEndpointRouteBuilder app) {
+            app.MapGet("/health", (IHealthService healthService) => healthService.GetHealth())
+                .WithDescription("Display Health Check")
+                .WithTags("Health Service");
             return app;
         }
     }
