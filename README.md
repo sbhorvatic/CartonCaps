@@ -28,6 +28,7 @@ This project will use or mock the following:
  - `dotnet run --project CartonCapsRestApi.Web/CartonCapsRestApi.Web.csproj` in directory with the sln for `CartonCapsRestApi`
  - App should be running at `http://localhost:8080/` and should be able to view the swagger page `http://localhost:8080/swagger/index.html`
    - NOTE IF AN APPLICATION IS RUNNING ON 8080 THE APPLICATION WILL NOT START! To fix this go to Program.cs and change `app.Run("http://0.0.0.0:8080");` to a port that will work
+ - A Test user is provided with an id of `1` 
 
 ## OpenAPI / Rest API Spec
 This project leverages the built in Microsoft Open API and Swagger UI for ease of use
