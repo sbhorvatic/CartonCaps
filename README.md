@@ -2,7 +2,7 @@
 Livefront .NET coding challenge
 
 This is split into two projects:
-- CartonCapsRestApi
+- RestSpec
 - CartonCapsMockApi
 
 Each with sln, projects and testing.
