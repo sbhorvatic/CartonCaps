@@ -4,7 +4,8 @@ namespace CartonCapsRestApi.Web.Store {
         User GetUser(string userId);
         List<User> GetAllUsers();
         bool SaveRefCode(string userId, string refCode);
-
-         bool SetUser(string userId);
+        string CreateUser();
+        User GetUserByRefCode(string refCode);
+        bool UpdateUserRedeems(string userId, int redeems);
     }
 }

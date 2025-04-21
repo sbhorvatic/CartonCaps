@@ -7,6 +7,9 @@ This is split into two projects:
 
 Each with sln, projects and testing.
 
+# RestSpec
+This is the OpenAPI spec for the project. This was gen using Open API and can be seen when starting the app and going to `http://localhost:8080/openapi/v1.json`
+
 # CartonCapsRestApi
 This is a REST API project that is to power the new referral feature which will be leveraged by the frontend.
 
@@ -25,6 +28,8 @@ This project will use or mock the following:
  ## Running and Testing
  - `dotnet test` in directory with the sln for `CartonCapsRestApi`
  - `dotnet run --project CartonCapsRestApi.Web/CartonCapsRestApi.Web.csproj` in directory with the sln for `CartonCapsRestApi`
+ - App should be running at `http://localhost:8080/` and should be able to view the swagger page `http://localhost:8080/swagger/index.html`
+   - NOTE IF AN APPLICATION IS RUNNING ON 8080 THE APPLICATION WILL NOT START! To fix this go to Program.cs and change `app.Run("http://0.0.0.0:8080");` to a port that will work
 
 ## OpenAPI / Rest API Spec
 This project leverages the built in Microsoft Open API and Swagger UI for ease of use

@@ -3,21 +3,38 @@ namespace CartonCapsRestApi.Web.Store {
     {
         private readonly List<User> _users;
         public InMemoryDb() {
-            _users = new List<User>();
-            _users.Add(new User {
-                Id = "1"
-            });
+            _users =
+            [
+                new User {
+                    Id = "1",
+                    Redeems = 0
+                },
+            ];
         }
 
-        public bool SetUser(string userId) {
+        public string CreateUser() {
+            var id =  Guid.NewGuid().ToString();
             _users.Add(new User {
-                Id = userId
+                Id = id
             });
-            return true;
+            return id;
+        }
+
+        public bool UpdateUserRedeems(string userId, int redeems) {
+            var user = _users.Where(x => x.Id == userId).FirstOrDefault();
+            if(user != null) {
+                user.Redeems = redeems;
+                return true;
+            }
+            return false;
         }
 
         public User GetUser(string userId) {
-            return _users.Where(x => x.Id == userId).FirstOrDefault();
+            return _users.FirstOrDefault(x => x.Id == userId);
+        }
+
+        public User GetUserByRefCode(string refCode) {
+            return _users.FirstOrDefault(x => x.RefCode == refCode);
         }
 
         public List<User> GetAllUsers() {

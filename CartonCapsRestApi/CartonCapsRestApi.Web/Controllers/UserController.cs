@@ -12,7 +12,7 @@ namespace CartonCapsRestApi.Web.Controllers {
         }
 
         public IResult GetReferral(string id) {
-            if(!_userAuthService.IsUserAuth()) {
+            if(!_userAuthService.IsUserAuth()) { //This could be middleware but I went this direction as it was eaiser for a mocking API
                 return TypedResults.Unauthorized();
             }
             try {
@@ -30,6 +30,18 @@ namespace CartonCapsRestApi.Web.Controllers {
             try {
                 var refCode = _userProfileService.GetNewReferral(id);
                 return TypedResults.Ok(refCode);
+            } catch(Exception e) {
+                return TypedResults.BadRequest(e.Message);
+            }
+        }
+
+        public IResult GetUserReferralProfile(string id) {
+            if(!_userAuthService.IsUserAuth()) {
+                return TypedResults.Unauthorized();
+            }
+            try {
+                var user = _userProfileService.GetUserReferralProfile(id);
+                return TypedResults.Ok(user);
             } catch(Exception e) {
                 return TypedResults.BadRequest(e.Message);
             }

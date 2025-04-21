@@ -3,5 +3,6 @@ namespace CartonCapsRestApi.Web.Store {
     {
         public required string Id { get; set;}
         public string? RefCode { get; set; }
+        public int Redeems { get; set; }
     }
 }

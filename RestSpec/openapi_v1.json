@@ -1,0 +1,171 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "CartonCapsRestApi.Web | v1",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8080"
+      }
+    ],
+    "paths": {
+      "/health": {
+        "get": {
+          "tags": [
+            "Health Service"
+          ],
+          "description": "Display Health Check",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/user/{id}/referral": {
+        "post": {
+          "tags": [
+            "User Service"
+          ],
+          "description": "Will gen and get referral. If referral is already gen then will fetch current referral",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "401": {
+              "description": "Unauthorized"
+            },
+            "400": {
+              "description": "Bad Request"
+            },
+            "202": {
+              "description": "Accepted"
+            }
+          }
+        }
+      },
+      "/user/{id}/newreferral": {
+        "post": {
+          "tags": [
+            "User Service"
+          ],
+          "description": "Will gen and get referral. Will always gen a new referral",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "401": {
+              "description": "Unauthorized"
+            },
+            "400": {
+              "description": "Bad Request"
+            },
+            "202": {
+              "description": "Accepted"
+            }
+          }
+        }
+      },
+      "/user/{id}": {
+        "get": {
+          "tags": [
+            "User Service"
+          ],
+          "description": "Will get referral profile.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "401": {
+              "description": "Unauthorized"
+            },
+            "400": {
+              "description": "Bad Request"
+            },
+            "202": {
+              "description": "Accepted"
+            }
+          }
+        }
+      },
+      "/registration/new": {
+        "post": {
+          "tags": [
+            "Registration Service"
+          ],
+          "description": "Will make a new users and use the refcode if available",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewUser"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "400": {
+              "description": "Bad Request"
+            },
+            "202": {
+              "description": "Accepted"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "NewUser": {
+          "type": "object",
+          "properties": {
+            "referralCode": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        }
+      }
+    },
+    "tags": [
+      {
+        "name": "Health Service"
+      },
+      {
+        "name": "User Service"
+      },
+      {
+        "name": "Registration Service"
+      }
+    ]
+  }

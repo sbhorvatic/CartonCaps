@@ -1,4 +1,5 @@
 using CartonCapsRestApi.Web.Exceptions;
+using CartonCapsRestApi.Web.Models;
 using CartonCapsRestApi.Web.Store;
 
 namespace CartonCapsRestApi.Web.Services {
@@ -10,6 +11,15 @@ namespace CartonCapsRestApi.Web.Services {
         public UserProfileService(IReferralService referralService, ICartonCapsStore userStore) {
             _referralService = referralService;
             _userStore = userStore;
+        }
+
+        public UserReferralProfile GetUserReferralProfile(string userId) {
+            var user = _userStore.GetUser(userId) ?? throw new NoUserException("Can't find user");
+            return new UserReferralProfile {
+                UserId = user.Id,
+                ReferralCode = user.RefCode,
+                ReferralCodeUsed = user.Redeems
+            };
         }
 
         public string GetReferral(string userId) {

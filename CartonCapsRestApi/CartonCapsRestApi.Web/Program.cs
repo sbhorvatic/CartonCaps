@@ -25,4 +25,4 @@ app.UseHttpsRedirection();
 
 router.SetRoutes(app);
 
-app.Run();
+app.Run("http://0.0.0.0:8080");
